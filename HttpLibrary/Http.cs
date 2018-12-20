@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LanQ.HttpLibrary
@@ -44,9 +45,9 @@ namespace LanQ.HttpLibrary
             }
         }
 
-        public static string Get(string url, string encoding = "UTF-8")
+        public static string Get(string url, int sleep = 0, string encoding = "UTF-8")
         {
-
+            Thread.Sleep(sleep);
             WebClient webClient = new WebClient();
             webClient.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36");
             webClient.Headers.Add("Content-Type", "application/x-www-form-urlencoded");//采取POST方式必须加的header，如果改为GET方式的话就去掉这句话即可  
